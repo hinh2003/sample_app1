@@ -1,0 +1,357 @@
+Started GET "/" for 127.0.0.1 at 2024-11-19 11:32:10 +0700
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/hinh/.rvm/gems/ruby-3.1.0/gems/railties-6.1.7.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/hinh/.rvm/gems/ruby-3.1.0/gems/railties-6.1.7.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 12.3ms | Allocations: 577)
+Completed 200 OK in 38ms (Views: 22.2ms | ActiveRecord: 0.0ms | Allocations: 4602)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-19 11:37:09 +0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/hinh/.rvm/gems/ruby-3.1.0/gems/railties-6.1.7.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/hinh/.rvm/gems/ruby-3.1.0/gems/railties-6.1.7.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.6ms | Allocations: 268)
+Completed 200 OK in 8ms (Views: 6.7ms | Allocations: 1114)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-19 11:37:36 +0700
+Processing by ApplicationController#hello as HTML
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 50)
+Completed 200 OK in 3ms (Views: 2.0ms | Allocations: 840)
+
+
+Started GET "/home" for 127.0.0.1 at 2024-11-19 11:55:16 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/home"):
+  
+Started GET "/static_pages" for 127.0.0.1 at 2024-11-19 11:55:23 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/static_pages"):
+  
+Started GET "/static_pages/home'" for 127.0.0.1 at 2024-11-19 11:55:43 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/static_pages/home'"):
+  
+Started GET "/static_pages/home'" for 127.0.0.1 at 2024-11-19 11:56:37 +0700
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:2:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/static_pages/home'" for 127.0.0.1 at 2024-11-19 11:56:46 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/static_pages/home'"):
+  
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 11:56:52 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 44)
+Completed 200 OK in 1ms (Views: 0.9ms | Allocations: 659)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 11:58:05 +0700
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:3:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 11:58:29 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 44)
+Completed 200 OK in 1ms (Views: 1.0ms | Allocations: 636)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 13:05:35 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 27)
+Completed 200 OK in 1ms (Views: 0.6ms | Allocations: 313)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 13:07:29 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 146)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: 1c5d3abb6b16cc1134bf
+Version: webpack 4.47.0
+Time: 431ms
+Built at: 11/19/2024 1:07:31 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-c71b9697ca75d2260040.js   8.52 KiB  application  [emitted] [immutable]  application
+js/application-c71b9697ca75d2260040.js.map   3.53 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-c71b9697ca75d2260040.js js/application-c71b9697ca75d2260040.js.map
+[./app/javascript/packs/application.js] 4.62 KiB {application} [built] [failed] [1 error]
+
+ERROR in ./app/javascript/packs/application.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+Error: Cannot find package '@babel/plugin-proposal-private-methods' imported from /home/hinh/Desktop/Rails/sample_app/babel-virtual-resolve-base.js
+    at new NodeError (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:195:5)
+    at packageResolve (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:899:9)
+    at moduleResolve (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:939:18)
+    at defaultResolve (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:1017:15)
+    at resolve (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/vendor/import-meta-resolve.js:1030:12)
+    at tryImportMetaResolve (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/config/files/plugins.js:148:45)
+    at resolveStandardizedNameForImport (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/config/files/plugins.js:173:19)
+    at resolveStandardizedName (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/config/files/plugins.js:185:22)
+    at loadPlugin (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/config/files/plugins.js:55:7)
+    at loadPlugin.next (<anonymous>)
+    at createDescriptor (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/config/config-descriptors.js:140:16)
+    at createDescriptor.next (<anonymous>)
+    at step (/home/hinh/Desktop/Rails/sample_app/node_modules/gensync/index.js:261:32)
+    at evaluateAsync (/home/hinh/Desktop/Rails/sample_app/node_modules/gensync/index.js:291:5)
+    at /home/hinh/Desktop/Rails/sample_app/node_modules/gensync/index.js:44:11
+    at Array.forEach (<anonymous>)
+    at Function.async (/home/hinh/Desktop/Rails/sample_app/node_modules/gensync/index.js:43:15)
+    at Function.all (/home/hinh/Desktop/Rails/sample_app/node_modules/gensync/index.js:216:13)
+    at Generator.next (<anonymous>)
+    at createDescriptors (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/config/config-descriptors.js:102:41)
+    at createDescriptors.next (<anonymous>)
+    at createPluginDescriptors (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/config/config-descriptors.js:99:17)
+    at createPluginDescriptors.next (<anonymous>)
+    at /home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/gensync-utils/functional.js:39:27
+    at Generator.next (<anonymous>)
+    at mergeChainOpts (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/config/config-chain.js:349:34)
+    at mergeChainOpts.next (<anonymous>)
+    at chainWalker (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/config/config-chain.js:316:14)
+    at chainWalker.next (<anonymous>)
+    at loadFileChain (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/config/config-chain.js:191:24)
+    at loadFileChain.next (<anonymous>)
+    at buildRootChain (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/config/config-chain.js:77:27)
+    at buildRootChain.next (<anonymous>)
+    at loadPrivatePartialConfig (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/config/partial.js:72:62)
+    at loadPrivatePartialConfig.next (<anonymous>)
+    at loadPartialConfig (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/config/partial.js:115:25)
+    at loadPartialConfig.next (<anonymous>)
+    at step (/home/hinh/Desktop/Rails/sample_app/node_modules/gensync/index.js:269:25)
+    at evaluateAsync (/home/hinh/Desktop/Rails/sample_app/node_modules/gensync/index.js:291:5)
+    at /home/hinh/Desktop/Rails/sample_app/node_modules/gensync/index.js:93:9
+    at new Promise (<anonymous>)
+    at async (/home/hinh/Desktop/Rails/sample_app/node_modules/gensync/index.js:92:14)
+    at stopHiding - secret - don't use this - v1 (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/errors/rewrite-stack-trace.js:47:12)
+    at loadPartialConfigAsync (/home/hinh/Desktop/Rails/sample_app/node_modules/@babel/core/lib/config/index.js:34:85)
+    at Object.<anonymous> (/home/hinh/Desktop/Rails/sample_app/node_modules/babel-loader/lib/index.js:133:26)
+    at Generator.next (<anonymous>)
+    at asyncGeneratorStep (/home/hinh/Desktop/Rails/sample_app/node_modules/babel-loader/lib/index.js:3:103)
+    at _next (/home/hinh/Desktop/Rails/sample_app/node_modules/babel-loader/lib/index.js:4:194)
+    at /home/hinh/Desktop/Rails/sample_app/node_modules/babel-loader/lib/index.js:4:364
+    at new Promise (<anonymous>)
+
+  Rendered layout layouts/application.html.erb (Duration: 1972.9ms | Allocations: 14262)
+Completed 200 OK in 1977ms (Views: 1975.4ms | Allocations: 15651)
+
+
+Started GET "/static_pages/help" for 127.0.0.1 at 2024-11-19 13:07:46 +0700
+Processing by StaticPagesController#help as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (Duration: 1.4ms | Allocations: 134)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 3214)
+Completed 200 OK in 9ms (Views: 7.4ms | Allocations: 3885)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 13:08:26 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 150)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 3503)
+Completed 200 OK in 9ms (Views: 7.3ms | Allocations: 4765)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 13:12:10 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 2961)
+Completed 200 OK in 7ms (Views: 5.9ms | Allocations: 3389)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (21.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-11-19 06:12:34.945018"], ["updated_at", "2024-11-19 06:12:34.945018"]]
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/static_pages/about" for 127.0.0.1 at 2024-11-19 13:19:11 +0700
+Processing by StaticPagesController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (Duration: 0.2ms | Allocations: 142)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 3474)
+Completed 200 OK in 6ms (Views: 5.1ms | Allocations: 4923)
+
+
+Started GET "/static_pages/about" for 127.0.0.1 at 2024-11-19 13:19:27 +0700
+Processing by StaticPagesController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (Duration: 0.9ms | Allocations: 156)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 3509)
+Completed 200 OK in 15ms (Views: 13.1ms | Allocations: 4811)
+
+
+Started GET "/static_pages/about" for 127.0.0.1 at 2024-11-19 13:19:36 +0700
+Processing by StaticPagesController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (Duration: 0.2ms | Allocations: 38)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 2961)
+Completed 200 OK in 7ms (Views: 6.6ms | Allocations: 3389)
+
+
+Started GET "/static_pages/about" for 127.0.0.1 at 2024-11-19 13:23:54 +0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb
+  Rendered static_pages/about.html.erb (Duration: 0.5ms | Allocations: 156)
+Completed 200 OK in 5ms (Views: 3.7ms | Allocations: 1828)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 13:25:37 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (Duration: 0.6ms | Allocations: 158)
+Completed 200 OK in 5ms (Views: 3.8ms | Allocations: 1891)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 13:26:15 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (Duration: 0.5ms | Allocations: 165)
+Completed 200 OK in 5ms (Views: 3.4ms | Allocations: 1910)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 13:27:44 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (Duration: 0.1ms | Allocations: 38)
+Completed 200 OK in 2ms (Views: 0.8ms | Allocations: 506)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 13:29:11 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (Duration: 0.2ms | Allocations: 38)
+Completed 200 OK in 2ms (Views: 0.9ms | Allocations: 456)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 13:36:28 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (Duration: 0.7ms | Allocations: 211)
+Completed 200 OK in 5ms (Views: 3.9ms | Allocations: 1901)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 13:36:35 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (Duration: 0.6ms | Allocations: 209)
+Completed 200 OK in 5ms (Views: 3.4ms | Allocations: 1954)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 13:36:52 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (Duration: 0.7ms | Allocations: 204)
+Completed 200 OK in 6ms (Views: 4.3ms | Allocations: 1938)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 13:47:46 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (Duration: 0.1ms | Allocations: 44)
+Completed 200 OK in 1ms (Views: 0.6ms | Allocations: 515)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 13:48:36 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (Duration: 1.5ms | Allocations: 201)
+Completed 200 OK in 7ms (Views: 5.6ms | Allocations: 1891)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 13:50:37 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb
+  Rendered static_pages/home.html.erb (Duration: 0.9ms | Allocations: 200)
+Completed 200 OK in 7ms (Views: 5.2ms | Allocations: 1939)
+
+
+Started GET "/static_pages/about" for 127.0.0.1 at 2024-11-19 13:50:43 +0700
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb
+  Rendered static_pages/about.html.erb (Duration: 0.7ms | Allocations: 161)
+Completed 200 OK in 2ms (Views: 1.5ms | Allocations: 775)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 13:54:48 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 172)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 3548)
+Completed 200 OK in 10ms (Views: 8.8ms | Allocations: 4811)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 13:57:55 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 172)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 3540)
+Completed 200 OK in 13ms (Views: 11.2ms | Allocations: 4850)
+
+
+Started GET "/static_pages/contact/" for 127.0.0.1 at 2024-11-19 14:01:30 +0700
+Processing by StaticPagesController#contact as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/contact.html.erb within layouts/application
+  Rendered static_pages/contact.html.erb within layouts/application (Duration: 0.5ms | Allocations: 177)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 3525)
+Completed 200 OK in 7ms (Views: 6.4ms | Allocations: 4974)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-19 14:02:03 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 171)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 3332)
+Completed 200 OK in 7ms (Views: 5.6ms | Allocations: 4245)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-19 14:06:10 +0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/hinh/.rvm/gems/ruby-3.1.0/gems/railties-6.1.7.10/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/hinh/.rvm/gems/ruby-3.1.0/gems/railties-6.1.7.10/lib/rails/templates/rails/welcome/index.html.erb (Duration: 15.8ms | Allocations: 264)
+Completed 200 OK in 18ms (Views: 16.7ms | Allocations: 1145)
+
+
+Started GET "/static_pages/home" for 127.0.0.1 at 2024-11-19 14:06:15 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 64)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 3219)
+Completed 200 OK in 10ms (Views: 9.3ms | Allocations: 3973)
+
+
