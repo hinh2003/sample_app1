@@ -1,0 +1,9 @@
+<li>
+  <%= gravatar_for user, size: 50 %>
+  <%= link_to user.name, user %>
+  <% if current_user.admin? && !current_user?(user) %>
+    | <%= form_with url: user_path(user), method: :delete, local: true do %>
+      <%= submit_tag "Xóa", class: "btn btn-danger" %>
+    <% end %>
+<% end %>
+</li>
