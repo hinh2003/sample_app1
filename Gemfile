@@ -7,7 +7,7 @@ ruby '3.1.0'
 gem 'rails', '~> 6.1.7', '>= 6.1.7.10'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
-# Use Puma as the app server
+# Use Puma as the app server2. What is the Ruby class of the pagination object? How does it compare tox
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
@@ -21,7 +21,10 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
+gem 'faker', '~> 2.18'
+gem 'i18n', '~> 1.9'
+gem 'will_paginate', '3.3.0'
+gem 'bootstrap-will_paginate', '1.0.0'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
