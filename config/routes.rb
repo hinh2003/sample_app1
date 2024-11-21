@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   post "/login" , to:"sessions#create"
   get "/logout" , to:"sessions#destroy"
   resources :users
-
+  resources :account_activations, only: [:edit]
   root 'static_pages#home'
 end
