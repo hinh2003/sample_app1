@@ -6152,3 +6152,493 @@ Processing by StaticPagesController#home as HTML
 Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 9164)
 
 
+Started GET "/" for 127.0.0.1 at 2024-11-21 10:53:31 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1143)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.3ms | Allocations: 102)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.2ms | Allocations: 99)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 518)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 244)
+  Rendered layout layouts/application.html.erb (Duration: 66.1ms | Allocations: 31146)
+Completed 200 OK in 68ms (Views: 67.3ms | Allocations: 32596)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-21 10:53:33 +0700
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1363)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.2ms | Allocations: 43)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.3ms | Allocations: 40)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 0.5ms | Allocations: 241)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 132)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 9613)
+Completed 200 OK in 18ms (Views: 16.3ms | Allocations: 10797)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-11-21 10:53:35 +0700
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.4ms | Allocations: 147)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.0ms | Allocations: 40)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 279)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 132)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 8493)
+Completed 200 OK in 13ms (Views: 12.1ms | Allocations: 9667)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-21 10:53:38 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.2ms | Allocations: 705)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 39)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 227)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 8522)
+Completed 200 OK in 11ms (Views: 10.5ms | Allocations: 8950)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddResetToUsers (20241121035423)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_digest" varchar[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_sent_at" datetime[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20241121035423"]]
+  [1m[36mTRANSACTION (17.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-11-21 10:55:19 +0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1138)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.5ms | Allocations: 102)
+  Rendered layouts/_rails_default.html.erb (Duration: 1.6ms | Allocations: 99)
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 2.4ms | Allocations: 518)
+  Rendered layouts/_footer.html.erb (Duration: 2.4ms | Allocations: 244)
+  Rendered layout layouts/application.html.erb (Duration: 30.7ms | Allocations: 10575)
+Completed 200 OK in 35ms (Views: 32.2ms | ActiveRecord: 0.0ms | Allocations: 12031)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-21 10:55:20 +0700
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1362)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 241)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 132)
+  Rendered layout layouts/application.html.erb (Duration: 37.0ms | Allocations: 9612)
+Completed 200 OK in 45ms (Views: 43.3ms | ActiveRecord: 0.0ms | Allocations: 10804)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-11-21 10:55:22 +0700
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 837)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.7ms | Allocations: 43)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 243)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 132)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 9097)
+Completed 200 OK in 25ms (Views: 23.4ms | ActiveRecord: 0.0ms | Allocations: 10278)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-11-21 10:55:33 +0700
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 815)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.3ms | Allocations: 102)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.2ms | Allocations: 99)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 522)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 242)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 10533)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.0ms | Allocations: 11870)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-11-21 11:03:58 +0700
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 624)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 246)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 134)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 8854)
+Completed 200 OK in 13ms (Views: 12.8ms | Allocations: 9611)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-21 11:04:00 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1138)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.2ms | Allocations: 43)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 235)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 132)
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | Allocations: 9155)
+Completed 200 OK in 24ms (Views: 22.2ms | Allocations: 10339)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-21 11:04:02 +0700
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1362)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.0ms | Allocations: 40)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 241)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 132)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 9612)
+Completed 200 OK in 17ms (Views: 15.5ms | Allocations: 10786)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-21 11:09:59 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 924)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.0ms | Allocations: 40)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 238)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 134)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 9025)
+Completed 200 OK in 12ms (Views: 11.3ms | Allocations: 9783)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-21 11:10:01 +0700
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1031)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 0.5ms | Allocations: 241)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 132)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 9314)
+Completed 200 OK in 22ms (Views: 20.3ms | Allocations: 10064)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-11-21 11:10:03 +0700
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 623)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 243)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 132)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 8885)
+Completed 200 OK in 13ms (Views: 12.1ms | Allocations: 9635)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-11-21 11:10:05 +0700
+Processing by PasswordResetsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/password_resets_controller.rb:8:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "vanhinh2003@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:42:in `create_reset_digest'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-11-21 04:10:05.620286"], ["id", 101]]
+  ↳ app/models/user.rb:42:in `create_reset_digest'
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:42:in `create_reset_digest'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:43:in `create_reset_digest'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-11-21 04:10:05.637471"], ["id", 101]]
+  ↳ app/models/user.rb:43:in `create_reset_digest'
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:43:in `create_reset_digest'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/password_reset.html.erb within layouts/mailer
+  Rendered user_mailer/password_reset.html.erb within layouts/mailer (Duration: 0.5ms | Allocations: 175)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.2ms | Allocations: 367)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/password_reset.text.erb within layouts/mailer
+  Rendered user_mailer/password_reset.text.erb within layouts/mailer (Duration: 0.6ms | Allocations: 125)
+  Rendered layout layouts/mailer.text.erb (Duration: 1.3ms | Allocations: 289)
+UserMailer#password_reset: processed outbound mail in 8.5ms
+Delivered mail 673eb29da3705_abfe57304144@hinh2003.mail (1.9ms)
+Date: Thu, 21 Nov 2024 11:10:05 +0700
+From: noreply@example.com
+To: vanhinh2003@gmail.com
+Message-ID: <673eb29da3705_abfe57304144@hinh2003.mail>
+Subject: Password reset
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_673eb29da30b5_abfe57304045";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_673eb29da30b5_abfe57304045
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+User#password_reset
+
+, find me in app/views/user_mailer/password_reset.text.erb
+
+
+----==_mimepart_673eb29da30b5_abfe57304045
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>User#password_reset</h1>
+
+<p>
+  , find me in app/views/user_mailer/password_reset.html.erb
+</p>
+
+  </body>
+</html>
+
+----==_mimepart_673eb29da30b5_abfe57304045--
+
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 259ms (ActiveRecord: 18.3ms | Allocations: 31216)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-21 11:10:05 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 815)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 227)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 8750)
+Completed 200 OK in 13ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 9194)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-21 11:20:17 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1138)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.3ms | Allocations: 102)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.4ms | Allocations: 99)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 518)
+  Rendered layouts/_footer.html.erb (Duration: 0.7ms | Allocations: 244)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 10579)
+Completed 200 OK in 19ms (Views: 17.5ms | Allocations: 12028)
+
+
+Started GET "/login" for 127.0.0.1 at 2024-11-21 11:20:19 +0700
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1362)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.0ms | Allocations: 40)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 241)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 132)
+  Rendered layout layouts/application.html.erb (Duration: 24.1ms | Allocations: 10383)
+Completed 200 OK in 27ms (Views: 25.8ms | Allocations: 11567)
+
+
+Started GET "/password_resets/new" for 127.0.0.1 at 2024-11-21 11:20:22 +0700
+Processing by PasswordResetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering password_resets/new.html.erb within layouts/application
+  Rendered password_resets/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 832)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.0ms | Allocations: 40)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 243)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 132)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 9205)
+Completed 200 OK in 13ms (Views: 11.6ms | Allocations: 10466)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2024-11-21 11:20:23 +0700
+Processing by PasswordResetsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password_reset"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/password_resets_controller.rb:10:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "vanhinh2003@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/password_resets_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:42:in `create_reset_digest'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-11-21 04:20:24.209002"], ["id", 101]]
+  ↳ app/models/user.rb:42:in `create_reset_digest'
+  [1m[36mTRANSACTION (43.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:42:in `create_reset_digest'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:43:in `create_reset_digest'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-11-21 04:20:24.260604"], ["id", 101]]
+  ↳ app/models/user.rb:43:in `create_reset_digest'
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:43:in `create_reset_digest'
+  Rendering layout layouts/mailer.html.erb
+  Rendering user_mailer/password_reset.html.erb within layouts/mailer
+  Rendered user_mailer/password_reset.html.erb within layouts/mailer (Duration: 0.7ms | Allocations: 167)
+  Rendered layout layouts/mailer.html.erb (Duration: 1.7ms | Allocations: 359)
+  Rendering layout layouts/mailer.text.erb
+  Rendering user_mailer/password_reset.text.erb within layouts/mailer
+  Rendered user_mailer/password_reset.text.erb within layouts/mailer (Duration: 0.3ms | Allocations: 123)
+  Rendered layout layouts/mailer.text.erb (Duration: 0.7ms | Allocations: 287)
+UserMailer#password_reset: processed outbound mail in 9.0ms
+Delivered mail 673eb50847431_abfe48bc43b6@hinh2003.mail (1.9ms)
+Date: Thu, 21 Nov 2024 11:20:24 +0700
+From: noreply@example.com
+To: vanhinh2003@gmail.com
+Message-ID: <673eb50847431_abfe48bc43b6@hinh2003.mail>
+Subject: Password reset
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_673eb50846c39_abfe48bc424d";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_673eb50846c39_abfe48bc424d
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+User#password_reset
+
+, find me in app/views/user_mailer/password_reset.text.erb
+
+
+----==_mimepart_673eb50846c39_abfe48bc424d
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>User#password_reset</h1>
+
+<p>
+  , find me in app/views/user_mailer/password_reset.html.erb
+</p>
+
+  </body>
+</html>
+
+----==_mimepart_673eb50846c39_abfe48bc424d--
+
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 352ms (ActiveRecord: 52.6ms | Allocations: 30993)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-21 11:20:24 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 815)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 227)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 8749)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.0ms | Allocations: 9193)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-21 11:21:10 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 701)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.3ms | Allocations: 39)
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 227)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 8518)
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 0.0ms | Allocations: 8901)
+
+
+Started GET "/" for 127.0.0.1 at 2024-11-21 11:23:02 +0700
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.6ms | Allocations: 924)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 43)
+  Rendered layouts/_rails_default.html.erb (Duration: 0.0ms | Allocations: 40)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 39)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 238)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 134)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 9015)
+Completed 200 OK in 12ms (Views: 11.2ms | Allocations: 9773)
+
+
