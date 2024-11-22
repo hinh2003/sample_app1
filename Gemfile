@@ -28,9 +28,10 @@ gem 'bootstrap-will_paginate', '1.0.0'
 gem 'active_storage_validations'
 gem 'image_processing', '1.9.3'
 gem 'mini_magick', '4.9.5'
+# Gemfile
+gem 'wdm'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bootstrap-sass'
