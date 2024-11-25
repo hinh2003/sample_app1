@@ -1,4 +1,6 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class UsersSignupTest < ActionDispatch::IntegrationTest
   # test "invalid signup information" do
@@ -14,5 +16,4 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   #   assert_not flash.FILL_IN
   #   assert is_logged_in?
   # end
-
 end

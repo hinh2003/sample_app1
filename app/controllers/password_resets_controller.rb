@@ -1,36 +1,38 @@
+# frozen_string_literal: true
+
+# The User model represents a user in the application.
+# It is responsible for handling user authentication, registration,
+# profile management, and other user-related functionality.
+# This model is associated with several other models like `Post`, `Relationship`,
+# and more. It uses features like secure password authentication and
+# token generation for password resets.
 class PasswordResetsController < ApplicationController
-  before_action :get_user, only: [:edit, :update]
-  before_action :valid_user, only: [:edit, :update]
-  before_action :check_expiration, only: [:edit, :update] # Case (1)
+  before_action :user, only: %i[edit update]
+  before_action :valid_user, only: %i[edit update]
+  before_action :check_expiration, only: %i[edit update] # Case (1)
 
-  def new
-  end
+  def new; end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @user = User.find_by(email: params[:password_reset][:email].downcase)
     if @user
       @user.create_reset_digest
       @user.send_password_reset_email
-      flash[:info] = "Email sent with password reset instructions"
+      flash[:info] = 'Email sent with password reset instructions'
       redirect_to root_url
     else
-      flash.now[:danger] = "Email not found"
+      flash.now[:danger] = 'Email not found'
       render 'new'
     end
   end
 
   def update
     if params[:user][:password].empty? # Case (3)
-      @user.errors.add(:password, "can't be empty")
-      render 'edit'
+      handle_empty_password
     elsif @user.update(user_params) # Case (4)
-      log_in @user
-      @user.update_attribute(:reset_digest, nil)
-      flash[:success] = "Password has been reset."
-      redirect_to @user
+      handle_successful_update
     else
       render 'edit' # Case (2)
     end
@@ -39,27 +41,39 @@ class PasswordResetsController < ApplicationController
   private
 
   # Lấy thông tin người dùng từ email
-  def get_user
+  def user
     @user = User.find_by(email: params[:email])
   end
 
   # Kiểm tra tính hợp lệ của người dùng
   def valid_user
-    unless @user && @user.activated? && @user.authenticated?(:reset, params[:id])
-      redirect_to root_url
-    end
+    return if @user&.activated?&.authenticated?(:reset, params[:id])
+
+    redirect_to root_url
   end
 
   # Kiểm tra nếu token hết hạn
   def check_expiration
-    if @user.password_reset_expired?
-      flash[:danger] = "Password reset has expired."
-      redirect_to new_password_reset_url
-    end
+    return unless @user.password_reset_expired?
+
+    flash[:danger] = 'Password reset has expired.'
+    redirect_to new_password_reset_url
   end
 
   # Định nghĩa phương thức để xử lý các tham số user
   def user_params
     params.require(:user).permit(:password, :password_confirmation)
+  end
+
+  def handle_empty_password
+    @user.errors.add(:password, "can't be empty")
+    render 'edit'
+  end
+
+  def handle_successful_update
+    log_in @user
+    @user.update(reset_digest: nil)
+    flash[:success] = 'Password has been reset.'
+    redirect_to @user
   end
 end
