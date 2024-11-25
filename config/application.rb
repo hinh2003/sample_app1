@@ -1,12 +1,18 @@
-require_relative "boot"
+# frozen_string_literal: true
 
-require "rails/all"
+require_relative 'boot'
+
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module SampleApp
+  # This class configures the core settings for the Rails application.
+  # It initializes defaults for the application and sets specific options for
+  # various features like embedding the authenticity token in remote forms.
+  # Custom configurations for different environments can be set in the config/environments/* files.
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
