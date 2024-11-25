@@ -39,6 +39,11 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+
+
+
+.byebug_history
 0
 0.pub
 .node_modules/
