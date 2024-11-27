@@ -24,6 +24,12 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
+  def create_third_party
+    user = User.from_omniauth(request.env['omniauth.auth'])
+    log_in(user)
+    redirect_back_or user
+  end
+
   private
 
   def process_authenticated_user(user)

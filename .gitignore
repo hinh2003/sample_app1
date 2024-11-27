@@ -41,9 +41,9 @@ yarn-debug.log*
 .yarn-integrity
 .idea/
 
-
-
 .byebug_history
 0
 0.pub
 .node_modules/
+# Ignore application configuration
+/config/application.yml
