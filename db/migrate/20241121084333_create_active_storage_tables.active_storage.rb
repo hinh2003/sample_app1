@@ -1,63 +1,16 @@
 # frozen_string_literal: true
 
 # This migration comes from active_storage (originally 20170806125915)
-class CreateActiveStorageTables < ActiveRecord::Migration[6.1]
-  # Migration to create active_storage tables
-
+class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
   def change
-    create_active_storage_blobs
-    create_active_storage_attachments
-    create_active_storage_variant_records
+    primary_key_type, foreign_key_type = primary_and_foreign_key_types
+
+    create_active_storage_blobs(primary_key_type)
+    create_active_storage_attachments(foreign_key_type)
+    create_active_storage_variant_records(foreign_key_type)
   end
 
   private
-
-  def create_active_storage_blobs
-    create_table :active_storage_blobs, id: primary_key_type do |t|
-      add_active_storage_blob_columns(t)
-      add_active_storage_blob_index(t)
-    end
-  end
-
-  def add_active_storage_blob_columns(_table)
-    t.string   :key,          null: false
-    t.string   :filename,     null: false
-    t.string   :content_type
-    t.text     :metadata
-    t.string   :service_name, null: false
-    t.bigint   :byte_size,    null: false
-    t.string   :checksum,     null: false
-    t.datetime :created_at,   null: false
-  end
-
-  def add_active_storage_blob_index(_table)
-    t.index [:key], unique: true
-  end
-
-  def create_active_storage_attachments
-    create_table :active_storage_attachments, id: primary_key_type do |t|
-      t.string     :name, null: false
-      t.references :record,
-                   null: false, polymorphic: true, index: false, type: foreign_key_type
-      t.references :blob, null: false, type: foreign_key_type
-
-      t.datetime :created_at, null: false
-      t.index %i[record_type record_id name blob_id],
-              name: 'index_active_storage_attachments_uniqueness', unique: true
-      t.foreign_key :active_storage_blobs, column: :blob_id
-    end
-  end
-
-  def create_active_storage_variant_records
-    create_table :active_storage_variant_records, id: primary_key_type do |t|
-      t.belongs_to :blob, null: false, index: false, type: foreign_key_type
-      t.string :variation_digest, null: false
-
-      t.index %i[blob_id variation_digest],
-              name: 'index_active_storage_variant_records_uniqueness', unique: true
-      t.foreign_key :active_storage_blobs, column: :blob_id
-    end
-  end
 
   def primary_and_foreign_key_types
     config = Rails.configuration.generators
@@ -65,5 +18,73 @@ class CreateActiveStorageTables < ActiveRecord::Migration[6.1]
     primary_key_type = setting || :primary_key
     foreign_key_type = setting || :bigint
     [primary_key_type, foreign_key_type]
+  end
+
+  def create_active_storage_blobs(primary_key_type)
+    create_table :active_storage_blobs, id: primary_key_type do |t|
+      add_blob_columns(t)
+    end
+    add_active_storage_blobs_index
+  end
+
+  def add_blob_columns(_table)
+    _table.string   :key,          null: false
+    _table.string   :filename,     null: false
+    _table.string   :content_type
+    _table.text     :metadata
+    _table.string   :service_name, null: false
+    _table.bigint   :byte_size,    null: false
+    _table.string   :checksum,     null: false
+    _table.datetime :created_at,   null: false
+  end
+
+  def add_active_storage_blobs_index
+    add_index :active_storage_blobs, [:key], unique: true
+  end
+
+  def create_active_storage_attachments(foreign_key_type)
+    create_table :active_storage_attachments, id: foreign_key_type do |t|
+      add_attachment_columns(t, foreign_key_type)
+    end
+    add_active_storage_attachments_index
+    add_foreign_key_for_attachments
+  end
+
+  def add_attachment_columns(_table, foreign_key_type)
+    _table.string     :name,     null: false
+    _table.references :record,   null: false, polymorphic: true, index: false, type: foreign_key_type
+    _table.references :blob,     null: false, type: foreign_key_type
+    _table.datetime :created_at, null: false
+  end
+
+  def add_active_storage_attachments_index
+    add_index :active_storage_attachments, %i[record_type record_id name blob_id],
+              name: 'index_active_storage_attachments_uniqueness', unique: true
+  end
+
+  def add_foreign_key_for_attachments
+    add_foreign_key :active_storage_attachments, :active_storage_blobs, column: :blob_id
+  end
+
+  def create_active_storage_variant_records(foreign_key_type)
+    create_table :active_storage_variant_records, id: foreign_key_type do |t|
+      add_variant_record_columns(t, foreign_key_type)
+    end
+    add_active_storage_variant_records_index
+    add_foreign_key_for_variant_records
+  end
+
+  def add_variant_record_columns(_table, foreign_key_type)
+    _table.belongs_to :blob, null: false, index: false, type: foreign_key_type
+    _table.string :variation_digest, null: false
+  end
+
+  def add_active_storage_variant_records_index
+    add_index :active_storage_variant_records, %i[blob_id variation_digest],
+              name: 'index_active_storage_variant_records_uniqueness', unique: true
+  end
+
+  def add_foreign_key_for_variant_records
+    add_foreign_key :active_storage_variant_records, :active_storage_blobs, column: :blob_id
   end
 end
