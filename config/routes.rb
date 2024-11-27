@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   post '/login', to: 'sessions#create'
 
+  get '/auth/:provider/callback', to: 'sessions#create_third_party'
+
   resources :users do
     member do
       get :following, :followers

@@ -102,8 +102,34 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  def self.from_omniauth(auth)
+    user = find_by(email: auth.info.email)
+    return user if user
 
+    find_or_create_user(auth)
+  end
+  class << self
+    private
 
+    def find_by_email(email)
+      User.where(email: email).first
+    end
+
+    def find_or_create_user(auth)
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        set_user_attributes(user, auth)
+      end
+    end
+
+    def set_user_attributes(user, auth)
+      user.email = auth.info.email
+      user.password = SecureRandom.hex(8)
+      user.name = auth.info.name
+      user.uid = auth.uid
+      user.provider = auth.provider
+      user.activated = true
+    end
+  end
   private
 
   # Converts email to all lower-case.
@@ -116,4 +142,5 @@ class User < ApplicationRecord
     self.activation_token = User.new_token
     self.activation_digest = User.digest(activation_token)
   end
+
 end
