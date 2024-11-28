@@ -12,36 +12,20 @@
         <%= f.check_box :remember_me %>
         <span>Remember me on this computer</span>
       <% end %>
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+      <%= f.submit "Log in", class: "btn btn-primary w-full" %>
     <% end %>
     <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-    <%= button_to 'Sign in with Github', '/auth/github', data: { turbo: false },class: 'btn btn-dark' %>
-    <%= button_to 'Sign in with Google', '/auth/google_oauth2', data: { turbo: false },class: 'btn btn-danger' %>
-    <%= button_to 'Sign in with Facebook', '/auth/facebook', data: { turbo: false },class: 'btn btn-primary' %>
+    <%= button_to '/auth/github', data: { turbo: false }, class: 'btn btn-dark btn-block d-flex justify-content-center align-items-center' do %>
+      <i class="fab fa-github "></i> <span style="margin-right: 4px">Sign in with Github</span>
+    <% end %>
 
+    <%= button_to '/auth/google_oauth2', data: { turbo: false }, class: 'btn btn-danger btn-block  d-flex justify-content-center align-items-center ' do %>
+      <i class="fab fa-google "></i> Sign in with Google
+    <% end %>
+
+    <%= button_to '/auth/facebook', data: { turbo: false }, class: 'btn btn-primary btn-block d-flex justify-content-center align-items-center ' do %>
+      <i class="fab fa-facebook " style="margin-left: 16px"></i> Sign in with Facebook
+    <% end %>
 
   </div>
 </div>
-
-<script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId      : '{your-app-id}',
-            cookie     : true,
-            xfbml      : true,
-            version    : '{api-version}'
-        });
-
-        FB.AppEvents.logPageView();
-
-    };
-
-    (function(d, s, id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
-</script>
