@@ -102,7 +102,24 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  def self.create_third_party(auth)
+    find_by(email: auth.info.email) || find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
+      set_user_attributes(user, auth)
+    end
 
+  end
+  class << self
+    private
+
+    def set_user_attributes(user, auth)
+      user.email = auth.info.email
+      user.password = SecureRandom.hex(8)
+      user.name = auth.info.name
+      user.uid = auth.uid
+      user.provider = auth.provider
+      user.activated = true
+    end
+  end
 
   private
 
