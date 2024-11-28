@@ -1,28 +1,25 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'SessionsController', type: :request do
   describe 'GET #create_third_party' do
-    let(:auth) do
-      OmniAuth::AuthHash.new({
-                               provider: 'github',
-                               uid: '1234567890',
-                               info: {
-                                 email: 'user@example.com',
-                                 name: 'John Doe'
-                               }
-                             })
-    end
-
     before do
-      OmniAuth.config.mock_auth[:github] = auth
+      OmniAuth.config.mock_auth[:github] = github_auth
+      OmniAuth.config.mock_auth[:facebook] = facebook_auth
+      OmniAuth.config.mock_auth[:google_oauth2] = google_auth
     end
 
-    it 'logs in the user by github' do
-      get '/auth/github/callback', env: { 'omniauth.auth' => OmniAuth.config.mock_auth[:github] }
-      user = User.find_by(email: 'user@example.com')
-      expect(session[:user_id]).to eq(user.id)
-      expect(response).to redirect_to(user_path(user))
+    describe 'Successful third-party logins' do
+      include_examples 'logs in user via third-party', 'github', 'user@example.com'
+      include_examples 'logs in user via third-party', 'facebook', 'facebook_user@example.com'
+      include_examples 'logs in user via third-party', 'google_oauth2', 'google_user@example.com'
     end
 
+    describe 'Failed third-party logins' do
+      include_examples 'fails login via third-party', 'github'
+      include_examples 'fails login via third-party', 'facebook'
+      include_examples 'fails login via third-party', 'google_oauth2'
+    end
   end
 end
