@@ -12,8 +12,20 @@
         <%= f.check_box :remember_me %>
         <span>Remember me on this computer</span>
       <% end %>
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+      <%= f.submit "Log in", class: "btn btn-primary w-full" %>
     <% end %>
     <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    <%= button_to '/auth/github', data: { turbo: false }, class: 'btn btn-dark btn-block d-flex justify-content-center align-items-center' do %>
+      <i class="fab fa-github "></i> <span style="margin-right: 4px">Sign in with Github</span>
+    <% end %>
+
+    <%= button_to '/auth/google_oauth2', data: { turbo: false }, class: 'btn btn-danger btn-block  d-flex justify-content-center align-items-center ' do %>
+      <i class="fab fa-google "></i> Sign in with Google
+    <% end %>
+
+    <%= button_to '/auth/facebook', data: { turbo: false }, class: 'btn btn-primary btn-block d-flex justify-content-center align-items-center ' do %>
+      <i class="fab fa-facebook " style="margin-left: 16px"></i> Sign in with Facebook
+    <% end %>
+
   </div>
 </div>
