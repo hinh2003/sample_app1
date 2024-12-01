@@ -9,6 +9,13 @@
 class Micropost < ApplicationRecord
   belongs_to :user
   has_one_attached :image
+  has_many :children,
+           class_name: 'Micropost',
+           foreign_key: 'parent_id',
+           dependent: :destroy
+  has_many :replies, class_name: 'Micropost', foreign_key: 'parent_id', dependent: :destroy
+
+
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
@@ -16,8 +23,10 @@ class Micropost < ApplicationRecord
                                     message: 'must be a valid image format' },
                     size: { less_than: 5.megabytes,
                             message: 'should be less than 5MB' }
+
   # Returns a resized image for display.
   def display_image
     image.variant(resize_to_limit: [500, 500])
   end
+
 end

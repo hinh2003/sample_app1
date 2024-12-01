@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="post-content">
+        <div class="post-container">
+          <%= link_to gravatar_for(@micropost.user, size: 50), @micropost.user %>
+          <div class="post-detail">
+            <div class="user-info">
+              <h5>
+                <%= link_to @micropost.user.name, @micropost.user %>
+                <span class="following">following</span>
+              </h5>
+
+              <p class="text-muted">Post <%= time_ago_in_words(@micropost.created_at) %> ago</p>
+            </div>
+            <div class="line-divider"></div>
+            <div class="post-text">
+              <p><%= @micropost.content %></p>
+              <% if @micropost.image.attached? %>
+                <img src="<%= url_for(@micropost.image) %>" class="image-preview">
+              <% end %>
+              <div class="line-divider"></div>
+
+              <% if @comments.any? %>
+                <% @comments.each do |comment| %>
+                  <div class="post-comment" >
+                    <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
+                    <p>
+                      <a href="<%= user_path(comment.user_id) %>" class="profile-link"><%= comment.user.name %></a>
+                      <%= comment.content %>
+                      <%= render 'shared/control_comment', comment: comment %>
+                    </p>
+                    <% if comment.replies.any? %>
+                        <% comment.replies.each do |reply| %>
+                          <div class="comment-child post-comment">
+                            <%= link_to gravatar_for(reply.user, size: 50), reply.user %>
+                            <p>
+                              <a href="<%= user_path(reply.user_id) %>" class="profile-link"><%= reply.user.name %></a>
+                              <%= reply.content %>
+                            </p>
+                            <%= render 'shared/control_comment', comment: reply %>
+
+                          </div>
+                        <% end %>
+                    <% end %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+            <%= render 'shared/comment_form' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
