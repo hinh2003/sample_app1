@@ -24,7 +24,41 @@ class MicropostsController < ApplicationController
   def destroy
     @micropost.destroy
     flash[:success] = 'Micropost deleted!'
-    redirect_to request.referer || root_url
+    redirect_to request.referer
+  end
+
+  def show
+    @micropost = Micropost.find_by(id: params[:id])
+
+    if @micropost.nil?
+      flash[:info] = 'Micropost not found'
+      redirect_to root_url
+    else
+      @comments = @micropost.replies.includes(:user)
+    end
+  end
+
+  def edit
+    @micropost = Micropost.find_by(id: params[:id])
+  end
+
+  def update
+    @micropost = Micropost.find(params[:id])
+    if @micropost.update(micropost_params)
+      flash[:success] = 'Micropost was successfully updated'
+      redirect_to micropost_path(@micropost)
+    else
+      render :edit
+    end
+  end
+
+  def create_comment
+    build_comment
+    if @micropost.save
+      redirect_to request.referer
+    else
+      redirect_to request.referer || root_path
+    end
   end
 
   private
@@ -44,5 +78,13 @@ class MicropostsController < ApplicationController
 
   def attach_image
     @micropost.image.attach(params[:micropost][:image])
+  end
+
+  def comment_params
+    params.permit(:content, :parent_id)
+  end
+
+  def build_comment
+    @micropost = current_user.microposts.build(comment_params)
   end
 end
