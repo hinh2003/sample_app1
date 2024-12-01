@@ -27,6 +27,26 @@ class MicropostsController < ApplicationController
     redirect_to request.referer || root_url
   end
 
+  def show
+    @micropost = Micropost.find_by(id: params[:id])
+
+    if @micropost.nil?
+      flash[:info] = 'Micropost not found'
+      redirect_to root_url
+    else
+      @comments = Micropost.get_data(@micropost.id)
+    end
+  end
+
+  def create_comment
+    build_comment
+    if @micropost.save
+      redirect_to request.referer || root_url
+    else
+      redirect_to root_url
+    end
+  end
+
   private
 
   def micropost_params
@@ -44,5 +64,13 @@ class MicropostsController < ApplicationController
 
   def attach_image
     @micropost.image.attach(params[:micropost][:image])
+  end
+
+  def comment_params
+    params.permit(:content, :parent_id)
+  end
+
+  def build_comment
+    @micropost = current_user.microposts.build(comment_params)
   end
 end

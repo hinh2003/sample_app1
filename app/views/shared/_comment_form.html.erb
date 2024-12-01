@@ -1,0 +1,6 @@
+<%= form_with(url: create_comment_path, method: :post) do |f| %>
+  <div class="post-comment">
+    <%= f.text_field :content , class: "form-control", placeholder: "Post a comment", rows: 2  %>
+    <%= f.hidden_field :parent_id, value: @micropost.id %>
+  </div>
+<% end %>

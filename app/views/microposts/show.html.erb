@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="post-content">
+        <div class="post-container">
+          <%= link_to gravatar_for(@micropost.user, size: 50), @micropost.user %>
+          <div class="post-detail">
+            <div class="user-info">
+              <h5>
+                <%= link_to @micropost.user.name, @micropost.user %>
+                <span class="following">following</span>
+              </h5>
+
+              <p class="text-muted">Post <%= time_ago_in_words(@micropost.created_at) %> ago</p>
+            </div>
+            <div class="line-divider"></div>
+            <div class="post-text">
+              <p><%= @micropost.content %></p>
+              <% if @micropost.image.attached? %>
+                <img src="<%= url_for(@micropost.image) %>" class="image-preview">
+              <% end %>
+              <div class="line-divider"></div>
+              <% @comments.each do |comment| %>
+                <div class="post-comment">
+                  <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
+                  <p>
+                    <a href=""<%= user_path(comment.user_id) %>" class="profile-link"><%= comment.user.name %></a>
+                    <%= comment.content %>
+                  </p>
+                  </div>
+                <a href="<%= micropost_path(comment.id) %>" class="reply-btn" data-id = "<%= comment.id  %>">
+                  Reply(<%= comment.reply_count ||0 %>)
+                </a>
+
+              <% end %>
+            </div>
+            <%= render 'shared/comment_form' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

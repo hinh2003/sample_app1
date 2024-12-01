@@ -66,4 +66,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   OmniAuth.config.test_mode = true
   config.include OmniAuthHelpers
+  config.include SessionsHelper
+  config.include Capybara::DSL
+  config.include Rails.application.routes.url_helpers
 end
