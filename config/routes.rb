@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   get '/logout', to: 'sessions#destroy'
   post '/login', to: 'sessions#create'
-  post '/create_comment', to: 'microposts#create_comment', as: :create_comment
 
   get '/auth/:provider/callback', to: 'sessions#create_third_party'
   resources :users do
