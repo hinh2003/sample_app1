@@ -29,7 +29,7 @@ shared_examples 'when parent_id is invalid' do
   it 'does not create a comment and renders the home page' do
     request.env['HTTP_REFERER'] = micropost_path(micropost.id)
     expect do
-      post create_comment_path, params: invalid_params
+      post microposts_url, params: invalid_params
     end
   end
 end

@@ -16,14 +16,12 @@ RSpec.describe MicropostsController, type: :request do
   describe 'GET /microposts/:id' do
     include_examples 'micropost exists?'
   end
-  describe 'POST /create_comment' do
+  describe 'POST /microposts' do
     include_examples 'with valid params'
-  end
-
-  describe 'POST /create_comment with invalid params' do
     include_examples 'when content is empty'
     include_examples 'when parent_id is invalid'
   end
+
   describe 'DELETE /microposts/:id' do
     include_examples 'destroy micropost'
   end
