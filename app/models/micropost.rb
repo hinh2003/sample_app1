@@ -9,11 +9,16 @@
 class Micropost < ApplicationRecord
   belongs_to :user
   has_one_attached :image
-  has_many :children,
+  has_many :replies,
            class_name: 'Micropost',
            foreign_key: 'parent_id',
-           dependent: :destroy
-  has_many :replies, class_name: 'Micropost', foreign_key: 'parent_id', dependent: :destroy
+           dependent: :destroy,
+           inverse_of: :parent
+
+  belongs_to :parent,
+             class_name: 'Micropost',
+             optional: true,
+             inverse_of: :replies
 
 
   default_scope -> { order(created_at: :desc) }
@@ -28,5 +33,4 @@ class Micropost < ApplicationRecord
   def display_image
     image.variant(resize_to_limit: [500, 500])
   end
-
 end

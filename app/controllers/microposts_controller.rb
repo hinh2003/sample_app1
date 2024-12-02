@@ -10,14 +10,10 @@ class MicropostsController < ApplicationController
   before_action :logged_in_user, only: %i[create destroy]
   before_action :correct_user,   only: [:destroy]
   def create
-    build_micropost
-    attach_image
-    if @micropost.save
-      flash[:success] = 'Micropost created!'
-      redirect_to root_url
+    if comment_params.present?
+      create_comment
     else
-      @feed_items = current_user.feed.paginate(page: params[:page])
-      render 'static_pages/home'
+      create_micropost
     end
   end
 
@@ -40,16 +36,17 @@ class MicropostsController < ApplicationController
 
   def edit
     @micropost = Micropost.find_by(id: params[:id])
+    return unless @micropost.nil?
+
+    flash[:info] = 'Micropost not found'
+    redirect_to root_url
   end
 
   def update
-    @micropost = Micropost.find(params[:id])
-    if @micropost.update(micropost_params)
-      flash[:success] = 'Micropost was successfully updated'
-      redirect_to micropost_path(@micropost)
-    else
-      render :edit
-    end
+    @micropost = Micropost.find_by(params[:id])
+    @micropost.update(micropost_params)
+    flash[:success] = 'Micropost was successfully updated'
+    redirect_to request.referer
   end
 
   def create_comment
@@ -58,6 +55,18 @@ class MicropostsController < ApplicationController
       redirect_to request.referer
     else
       redirect_to request.referer || root_path
+    end
+  end
+
+  def create_micropost
+    build_micropost
+    attach_image
+    if @micropost.save
+      flash[:success] = 'Micropost created!'
+      redirect_to root_url
+    else
+      @feed_items = current_user.feed.paginate(page: params[:page])
+      render 'static_pages/home'
     end
   end
 
