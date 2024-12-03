@@ -1,0 +1,10 @@
+<a href="<%= micropost_path(comment.id) %>" class="reply-btn" data-id = "<%= comment.id  %>">
+  Reply
+</a>
+<% if current_user?(comment.user) %>
+<%= link_to 'Edit', edit_micropost_path(comment.id), class: 'reply-btn' %>
+
+<%= form_with(url: micropost_path(comment.id), method: :delete, local: true) do %>
+  <%= submit_tag 'Delete', style: 'color: red; border: none;', class: 'reply-btn' %>
+  <% end %>
+<% end %>

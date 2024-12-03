@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
   get '/auth/:provider/callback', to: 'sessions#create_third_party'
-
   resources :users do
     member do
       get :following, :followers
@@ -19,7 +18,8 @@ Rails.application.routes.draw do
   end
   resources :account_activations, only: [:edit]
   resources :password_resets, only: %i[new create edit update]
-  resources :microposts, only: %i[create destroy]
+  resources :microposts, only: %i[create destroy update edit show]
+
   resources :relationships, only: %i[create destroy]
 
   root 'static_pages#home'
