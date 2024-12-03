@@ -27,8 +27,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'faker', '~> 2.18'
 gem 'i18n', '~> 1.9'
-gem 'image_processing', '1.9.3'
-gem 'mini_magick', '4.9.5'
+gem 'image_processing'
+gem 'mini_magick'
 gem 'will_paginate', '3.3.0'
 # Gemfile
 gem 'wdm'
@@ -80,3 +80,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+gem 'tailwindcss-rails', '~> 2.5'
