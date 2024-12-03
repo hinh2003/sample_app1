@@ -46,7 +46,7 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.find_by(params[:id])
     @micropost.update(micropost_params)
     flash[:success] = 'Micropost was successfully updated'
-    redirect_to request.referer
+    redirect_to request.referer || root_url
   end
 
   def create_comment
