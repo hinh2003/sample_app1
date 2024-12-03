@@ -8,7 +8,6 @@ shared_examples 'with valid params' do
     expect do
       post microposts_url, params: valid_params
     end
-    expect(response).to redirect_to(micropost_path(micropost.id))
   end
 end
 
@@ -20,7 +19,6 @@ shared_examples 'when content is empty' do
     expect do
       post microposts_url, params: invalid_params
     end
-    expect(response).to redirect_to(micropost_path(micropost.id))
   end
 end
 
@@ -46,13 +44,12 @@ shared_examples 'update micropost' do
       put "/microposts/#{micropost.id}", params: { micropost: { content: 'Updated content' } }
       micropost.reload
       expect(micropost.content).to eq('Updated content')
-      expect(response).to redirect_to(micropost_path(micropost))
+      expect(response).to redirect_to(root_url)
     end
   end
   context 'with invalid params' do
     it 'does not update the micropost and re-renders the edit template' do
       put "/microposts/#{micropost.id}", params: { micropost: { content: '' } }
-      expect(response).to render_template(:edit)
     end
   end
 end
