@@ -19,29 +19,42 @@
               <% if @micropost.image.attached? %>
                 <img src="<%= url_for(@micropost.image) %>" class="image-preview">
               <% end %>
-              <div class="line-divider"></div>
+
+              <div class="line-divider">
+                <%= render 'shared/reaction_form', comment: @micropost %>
+              </div>
 
               <% if @comments.any? %>
                 <% @comments.each do |comment| %>
                   <div class="post-comment" >
+                    <div class="post-comment">
                     <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
                     <p>
                       <a href="<%= user_path(comment.user_id) %>" class="profile-link"><%= comment.user.name %></a>
                       <%= comment.content %>
                       <%= render 'shared/control_comment', comment: comment %>
                     </p>
+                    </div>
+                    <div>
+                      <%= render 'shared/reaction_form', comment: comment %>
+                    </div>
                     <% if comment.replies.any? %>
                         <% comment.replies.each do |reply| %>
                           <div class="comment-child post-comment">
+                            <div class="comment-child post-comment">
                             <%= link_to gravatar_for(reply.user, size: 50), reply.user %>
                             <p>
                               <a href="<%= user_path(reply.user_id) %>" class="profile-link"><%= reply.user.name %></a>
                               <%= reply.content %>
                             </p>
                             <%= render 'shared/control_comment', comment: reply %>
+                            </div>
+                            <div style="margin-left: 20px;">
+                              <%= render 'shared/reaction_form', comment: reply %>
+                            </div>
 
                           </div>
-                        <% end %>
+                  <% end %>
                     <% end %>
                   </div>
                 <% end %>

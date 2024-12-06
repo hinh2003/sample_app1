@@ -8,6 +8,7 @@
 # token generation for password resets.
 class Micropost < ApplicationRecord
   belongs_to :user
+  has_many :reactions, dependent: :destroy
   has_one_attached :image
   has_many :replies,
            class_name: 'Micropost',
@@ -19,7 +20,6 @@ class Micropost < ApplicationRecord
              class_name: 'Micropost',
              optional: true,
              inverse_of: :replies
-
 
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true

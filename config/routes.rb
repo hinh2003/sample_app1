@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
   get '/auth/:provider/callback', to: 'sessions#create_third_party'
+
+  post '/microposts/reactions', to: 'reactions#create', as: 'reactions'
+  delete '/microposts/:micropost_id/reactions', to: 'reactions#destroy', as: 'destroy_reaction'
+
   resources :users do
     member do
       get :following, :followers
