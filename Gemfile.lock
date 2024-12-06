@@ -384,7 +384,7 @@ DEPENDENCIES
   faker (~> 2.18)
   figaro
   i18n (~> 1.9)
-  image_processing
+  image_processing (~> 1.2)
   jbuilder (~> 2.7)
   listen (~> 3.3)
   mini_magick
