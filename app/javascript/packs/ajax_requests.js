@@ -36,20 +36,17 @@ $(document).off('click', '.reaction-icon').on('click', '.reaction-icon', functio
             if (response.success) {
                 let reactionIcon = '';
                 switch (reactionType) {
-                    case 'Like':
+                    case 0:
                         reactionIcon = '👍';
                         break;
-                    case 'Sad':
+                    case 1:
                         reactionIcon = '😢';
                         break;
-                    case 'Angry':
+                    case 2:
                         reactionIcon = '😡';
                         break;
-                    case 'Wow':
+                    case 3:
                         reactionIcon = '😮';
-                        break;
-                    default:
-                        reactionIcon = 'like';
                         break;
                 }
 

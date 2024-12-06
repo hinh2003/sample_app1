@@ -13,8 +13,8 @@ class ReactionsController < ApplicationController
   end
 
   def destroy
-    find_micropost_by_user
-    if find_micropost_by_user
+    find_reaction_by_user
+    if find_reaction_by_user
       @reaction.destroy
       redirect_to request.referer
     else
@@ -31,10 +31,10 @@ class ReactionsController < ApplicationController
 
   def build_reaction
     @reaction = current_user.reactions.find_or_initialize_by(micropost_id: reaction_params[:micropost_id])
-    @reaction.reaction_type = reaction_params[:reaction_type]
+    @reaction.reaction_type = reaction_params[:reaction_type].to_i
   end
 
-  def find_micropost_by_user
+  def find_reaction_by_user
     @reaction = current_user.reactions.find_by(micropost_id: reaction_params[:micropost_id])
   end
 end
