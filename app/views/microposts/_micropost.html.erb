@@ -3,7 +3,10 @@
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <span class="content">
     <a href="/microposts/<%= micropost.id %>">  <%= micropost.content %></a>
-    <%= image_tag micropost.display_image if micropost.image.attached? %>
+    <% if micropost.image.attached? %>
+      <img src="<%= url_for(micropost.image) %>" class="image-preview">
+    <% end %>
+
 
   </span>
   <span class="timestamp">
@@ -15,4 +18,6 @@
       <% end %>
     <% end %>
   </span>
+  <%= render 'shared/reaction_form', comment: micropost %>
+
 </li>

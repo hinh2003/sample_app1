@@ -27,7 +27,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'faker', '~> 2.18'
 gem 'i18n', '~> 1.9'
-gem 'image_processing'
+gem 'image_processing', '~> 1.2'
 gem 'mini_magick'
 gem 'will_paginate', '3.3.0'
 # Gemfile

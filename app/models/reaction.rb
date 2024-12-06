@@ -2,13 +2,21 @@
 
 # this is model reaction
 class Reaction < ApplicationRecord
-  enum reaction_type: { Like: 0, Sad: 1, Angry: 2, Wow: 3 }
   belongs_to :user
   belongs_to :micropost, optional: true
+  REACTION_TYPES = {
+    0 => 'Like',
+    1 => 'Sad',
+    2 => 'Angry',
+    3 => 'Wow'
+  }.freeze
+  def reaction_type_name
+    REACTION_TYPES[reaction_type]
+  end
 
   def self.get_reaction_type(user_id, micropost_id)
     reaction = Reaction.find_by(user_id: user_id, micropost_id: micropost_id)
-    reaction&.reaction_type
+    REACTION_TYPES[reaction&.reaction_type]
   end
 
   def self.info_reactions(micropost_id)
