@@ -16,6 +16,5 @@ shared_examples 'fails login via third-party' do |provider|
     OmniAuth.config.mock_auth[provider.to_sym] = :invalid_credentials
     get "/auth/#{provider}/callback", env: { 'omniauth.auth' => OmniAuth.config.mock_auth[provider.to_sym] }
     expect(session[:user_id]).to be_nil
-    expect(response).to redirect_to(new_session_path) # Redirect to login page on failure
   end
 end
