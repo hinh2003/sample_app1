@@ -1,0 +1,29 @@
+<span class="reply-btn" data-id="<%= comment.id %>" data-userId="<%= comment.user_id %>">
+  <%= link_to get_react(current_user.id, comment.id), destroy_reaction_path(comment.id),
+              method: :delete,
+              class: "reaction-text" %>
+  <div class="reaction-icons hidden">
+        <% Reaction.reaction_types.each do |reaction_name, _value| %>
+            <span class="reaction-icon"
+                  data-reaction="<%= reaction_name %>"
+                  data-id="<%= comment.id %>"
+                  data-user-id="<%= current_user.id %>"
+                  data-micropost-id="<%= comment.id %>"
+                  data-reaction-type="<%= reaction_name %>">
+                <%= reaction_icon(reaction_name) %>
+          </span>
+        <% end %>
+    </div>
+</span>
+<% if total_reactions(comment.id) > 0 %>
+<span class="reaction-text reaction-total">
+  <%= total_reactions(comment.id) %>
+    <span class="reaction-user hidden">
+      <% user_reactions(comment).each do |user_name| %>
+        <p><%= user_name %></p>
+      <% end %>
+    </span>
+  <% end %>
+</span>
+<%= javascript_pack_tag 'application' %>
+
