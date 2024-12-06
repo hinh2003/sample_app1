@@ -8,13 +8,13 @@ class ReactionsController < ApplicationController
 
     build_reaction
     @reaction.save
-    render json: { success: true, message: 'Reaction saved successfully.', reaction_type: @reaction.reaction_type },
+    render json: { success: true, message: 'Reaction saved successfully.'},
            status: :ok
   end
 
   def destroy
-    find_micropost_by_user
-    if find_micropost_by_user
+    find_reaction_by_user
+    if find_reaction_by_user
       @reaction.destroy
       redirect_to request.referer
     else
@@ -34,7 +34,7 @@ class ReactionsController < ApplicationController
     @reaction.reaction_type = reaction_params[:reaction_type]
   end
 
-  def find_micropost_by_user
+  def find_reaction_by_user
     @reaction = current_user.reactions.find_by(micropost_id: reaction_params[:micropost_id])
   end
 end

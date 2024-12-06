@@ -7,14 +7,14 @@ module ReactionsHelper
     reaction_icon(reaction_value)
   end
 
-  def reaction_icon(reaction_name)
+  def reaction_icon(reaction_number)
     reaction_icons = {
       'Like' => '👍',
       'Sad' => '😢',
       'Angry' => '😡',
       'Wow' => '😮'
     }
-    reaction_icons[reaction_name] || 'Like'
+    reaction_icons[reaction_number] || 'Like'
   end
 
   def total_reactions(micropost)
