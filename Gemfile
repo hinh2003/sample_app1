@@ -31,7 +31,7 @@ gem 'image_processing'
 gem 'mini_magick'
 gem 'will_paginate', '3.3.0'
 # Gemfile
-gem 'wdm'
+# gem 'wdm'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 # Reduces boot times through caching; required in config/boot.rb
@@ -45,7 +45,7 @@ gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'prism'
-gem 'pry-rails'
+# gem 'pry-rails'
 gem 'rouge', '~> 4.2'
 gem 'rubocop'
 gem 'rubocop-capybara', '~> 2.21'
@@ -76,7 +76,6 @@ group :test do
   gem 'rails-controller-testing'
   gem 'webdrivers'
 end
-
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
