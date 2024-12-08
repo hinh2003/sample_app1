@@ -9,10 +9,10 @@ module ReactionsHelper
 
   def reaction_icon(reaction_number)
     reaction_icons = {
-      '0' => '👍',
-      '1' => '😢',
-      '2' => '😡',
-      '3' => '😮'
+      'Like' => '👍',
+      'Sad' => '😢',
+      'Angry' => '😡',
+      'Wow' => '😮'
     }
     reaction_icons[reaction_number] || 'Like'
   end

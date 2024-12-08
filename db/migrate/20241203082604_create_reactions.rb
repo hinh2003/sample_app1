@@ -6,7 +6,7 @@ class CreateReactions < ActiveRecord::Migration[6.1]
     create_table :reactions do |t|
       t.integer :user_id, null: false
       t.integer :micropost_id, null: false
-      t.string :reaction_type, null: false
+      t.integer :reaction_type, null: false
 
       t.timestamps
     end

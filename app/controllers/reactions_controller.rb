@@ -8,7 +8,7 @@ class ReactionsController < ApplicationController
 
     build_reaction
     @reaction.save
-    render json: { success: true, message: 'Reaction saved successfully.', reaction_type: @reaction.reaction_type },
+    render json: { success: true, message: 'Reaction saved successfully.'},
            status: :ok
   end
 
@@ -31,7 +31,7 @@ class ReactionsController < ApplicationController
 
   def build_reaction
     @reaction = current_user.reactions.find_or_initialize_by(micropost_id: reaction_params[:micropost_id])
-    @reaction.reaction_type = reaction_params[:reaction_type].to_i
+    @reaction.reaction_type = reaction_params[:reaction_type]
   end
 
   def find_reaction_by_user

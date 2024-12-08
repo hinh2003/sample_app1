@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2024_12_03_082604) do
   create_table "reactions", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "micropost_id", null: false
-    t.string "reaction_type", null: false
+    t.integer "reaction_type", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id", "micropost_id"], name: "index_reactions_on_user_id_and_micropost_id", unique: true
