@@ -3,14 +3,13 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-import Rails from "@rails/ujs"
+import Rails from "@rails/ujs"   // Import rails-ujs
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
-import "channels"
+import "channels"                // Import channels
+import "./ajax_requests"         // Your custom JS
+import "bootstrap"               // Import bootstrap
 
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
-require("channels")
-require("jquery")
-import "bootstrap"
+Rails.start()                   // Initialize rails-ujs
+Turbolinks.start()              // Initialize turbolinks
+ActiveStorage.start()           // Initialize ActiveStorage

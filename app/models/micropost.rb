@@ -8,6 +8,7 @@
 # token generation for password resets.
 class Micropost < ApplicationRecord
   belongs_to :user
+  has_many :reactions, dependent: :destroy
   has_one_attached :image
   has_many :replies,
            class_name: 'Micropost',
@@ -20,7 +21,6 @@ class Micropost < ApplicationRecord
              optional: true,
              inverse_of: :replies
 
-
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
@@ -31,6 +31,6 @@ class Micropost < ApplicationRecord
 
   # Returns a resized image for display.
   def display_image
-    image.variant(resize_to_limit: [500, 500])
+    image.variant(resize_to_fit: [500, 500])
   end
 end
