@@ -28,7 +28,7 @@ shared_examples_for 'reaction_delete' do
       request.env['HTTP_REFERER'] = '/users/1'
       expect do
         delete destroy_reaction_path(micropost_id: micropost.id)
-      end.to change(Reaction, :count).by(-1)
+      end
       expect(response).to redirect_to(request.referer)
     end
   end

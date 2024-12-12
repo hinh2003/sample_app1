@@ -1,7 +1,7 @@
 <span class="reply-btn" data-id="<%= comment.id %>" data-userId="<%= comment.user_id %>">
     <%= link_to get_react(current_user.id, comment.id), destroy_reaction_path(comment.id),
               method: :delete,
-              class: "reaction-text" %>
+              class: "reaction-text", style: "  text-decoration: none " %>
   <div class="reaction-icons hidden">
     <% Reaction::REACTION_TYPES.each do |reaction_value, reaction_name| %>
         <span class="reaction-icon"

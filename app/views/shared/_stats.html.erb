@@ -13,3 +13,9 @@
     followers
   </a>
 </div>
+<% if current_user ==@user %>
+  <a href="<%= rooms_path %>" class="btn btn-primary" role="button" style="color: white ;padding: 5px ;width: 40%">Messages</a>
+  <%else %>
+  <a href="<%= create_room_user_path(recipient_id: @user.id) %>" class="btn btn-primary" role="button" style="color: white ;padding: 5px ;width: 40%">Chat</a>
+
+<% end %>
