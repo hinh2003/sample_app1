@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # get "static_pages/home" ,to:"static_pages#home"
   get '/help', to: 'static_pages#help', as: 'helf'
   get '/about', to: 'static_pages#about'
   get '/contact', to: 'static_pages#contact'
@@ -14,7 +13,9 @@ Rails.application.routes.draw do
 
   post '/microposts/reactions', to: 'reactions#create', as: 'reactions'
   delete '/microposts/:micropost_id/reactions', to: 'reactions#destroy', as: 'destroy_reaction'
-
+  resources :messages
+  resources :rooms
+  get 'rooms/user/:recipient_id', to: 'rooms#create_room', as: 'create_room_user'
   resources :users do
     member do
       get :following, :followers
