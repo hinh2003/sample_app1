@@ -4,6 +4,8 @@
 class Room < ApplicationRecord
   has_many :messages, dependent: :destroy
 
+  validates :name, presence: true, uniqueness: true
+
   def self.find_room(user_id, recipient_id)
     Room.joins(messages: :user)
         .where(messages: { user_id: user_id })
