@@ -46,10 +46,18 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'prism'
 # gem 'pry-rails'
+gem 'google-api-client', '~> 0.7.1'
+gem 'google-apis-drive_v3'
+gem 'google-apis-sheets_v4'
+
+gem 'googleauth', '~> 1.0'
+
+
 gem 'rouge', '~> 4.2'
 gem 'rubocop'
 gem 'rubocop-capybara', '~> 2.21'
 gem 'rubocop-rails', '~> 2.27'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

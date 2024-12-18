@@ -1,0 +1,43 @@
+<div class="container">
+  <h1 class="text-center">Sheet Data</h1>
+
+  <% if @sheet_data.present? %>
+    <% @sheet_data.each do |sheet| %>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= sheet[:name] %></h3>
+        </div>
+        <div class="panel-body">
+          <% if sheet[:data].present? %>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped">
+                <thead>
+                <tr class="info">
+                  <% sheet[:data].first.each do |header| %>
+                    <th class="text-center"><%= header %></th>
+                  <% end %>
+                </tr>
+                </thead>
+                <tbody>
+                <% sheet[:data].drop(1).each do |row| %>
+                  <tr>
+                    <% row.each do |cell| %>
+                      <td><%= cell %></td>
+                    <% end %>
+                  </tr>
+                <% end %>
+                </tbody>
+              </table>
+            </div>
+          <% else %>
+            <p class="text-warning">No data found in this sheet.</p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="alert alert-danger">
+      <p>No sheets found.</p>
+    </div>
+  <% end %>
+</div>
