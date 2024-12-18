@@ -306,6 +306,9 @@ span.image {
   position: relative;
   display: inline-block;
 }
+.btn{
+  margin-top: 5px;
+}
 
 .reaction-icons {
   position: absolute;
@@ -369,9 +372,14 @@ span.image {
 .reaction-text {
   cursor: pointer;
 }
-
 .reaction-total:hover .reaction-user {
   display: block;
 }
+.padding{
+  padding: 10px;
+  margin-left:5px ;
+  border-radius:5px ;
+}
+
 
 

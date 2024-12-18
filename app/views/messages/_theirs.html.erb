@@ -1,0 +1,15 @@
+<div class="message mb-2 theirs" id="message-theirs" data-chatId="<%= message.id %>">
+  <div class="content-container" data-chatId="<%= message.id %>">
+    <div class="content">
+      <%= message.content %>
+    </div>
+    <div class="author" style="display: flex">
+      <%= message.user.name %>
+      <% if message.edited == true %>
+        <div class="edited" style="margin-left: 5px; color: gray; font-style: italic;">
+          (edited)
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

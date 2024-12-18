@@ -8,7 +8,7 @@ class ReactionsController < ApplicationController
 
     build_reaction
     @reaction.save
-    render json: { success: true, message: 'Reaction saved successfully.'},
+    render json: { success: true, message: 'Reaction saved successfully.' },
            status: :ok
   end
 
