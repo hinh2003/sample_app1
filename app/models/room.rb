@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# frozen_string_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literal: true
 
 # this is model room
 class Room < ApplicationRecord
