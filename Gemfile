@@ -53,7 +53,9 @@ gem 'google-apis-sheets_v4'
 gem 'googleauth', '~> 1.0'
 gem 'slack-ruby-client'
 gem 'whenever', require: false
-
+gem "stackprof"
+gem "sentry-ruby"
+gem "sentry-rails"
 
 
 gem 'rouge', '~> 4.2'
