@@ -36,6 +36,9 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   include GoogleTokenRefreshable
+  scope :newly_registered_yesterday, lambda { |date|
+    where(created_at: date.beginning_of_day..date.end_of_day)
+  }
 
   def self.digest(string)
     cost = if ActiveModel::SecurePassword.min_cost
