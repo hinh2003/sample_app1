@@ -28,7 +28,23 @@ class Micropost < ApplicationRecord
                                     message: 'must be a valid image format' },
                     size: { less_than: 5.megabytes,
                             message: 'should be less than 5MB' }
+  scope :new_posts_yesterday, lambda { |date|
+    where(created_at: date.beginning_of_day..date.end_of_day)
+      .where(parent_id: nil)
+  }
 
+  scope :new_comments_yesterday, lambda { |date|
+    where(created_at: date.beginning_of_day..date.end_of_day)
+      .where.not(parent_id: nil)
+  }
+
+  scope :most_commented_yesterday, ->(date) {
+    where(created_at: date.beginning_of_day..date.end_of_day)
+      .where.not(parent_id: nil)
+      .group(:parent_id)
+      .order('count_all DESC')
+      .count
+  }
   # Returns a resized image for display.
   def display_image
     image.variant(resize_to_fit: [500, 500])
