@@ -30,6 +30,8 @@ class SessionsController < ApplicationController
     redirect_back_or user
   end
 
+
+
   private
 
   def process_authenticated_user(user)
