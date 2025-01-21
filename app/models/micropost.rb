@@ -45,7 +45,7 @@ class Micropost < ApplicationRecord
       .order('count_all DESC')
       .count
   }
-
+  # Returns a resized image for display.
   def display_image
     image.variant(resize_to_fit: [500, 500])
   end

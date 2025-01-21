@@ -2,13 +2,15 @@
 
 # this is ReportService
 class ReportService
+  extend TemplateFormatter
+
   def self.send_daily_report
     yesterday = Time.zone.yesterday
 
     new_users = count_new_users(yesterday)
     new_posts = count_new_posts(yesterday)
     new_comment = count_new_comments(yesterday)
-    most_commented_message, micropost_url, comment_count = fetch_most_commented_post(yesterday)
+    most_commented_message = fetch_most_commented_post(yesterday)
 
     report_message = build_report_message(yesterday, new_users, new_posts, new_comment, most_commented_message)
     send_to_slack(report_message)
@@ -43,32 +45,38 @@ class ReportService
   end
 
   def self.no_comments_message
-    'Không có bài viết nào có comment hôm qua.'
+    format_template('no_comments_message.msg')
   end
 
   def self.build_most_commented_message(micropost, count, url)
-    <<~MSG
-      Bài viết có ID #{micropost.id} có nhiều comment nhất với #{count} comment.
-      URL bài viết: #{url}
-    MSG
+    format_template(
+      'build_most_commented_message.msg',
+      micropost_id: micropost.id,
+      count: count,
+      url: url
+    )
   end
 
   def self.micropost_url(micropost)
-    "http://127.0.0.1:3000/microposts/#{micropost.id}"
+    format_template(
+      'micropost_url_template.msg',
+      micropost_id: micropost.id
+    )
   end
 
-  def self.build_report_message(yesterday, new_users, new_posts, new_comment, most_commented_message)
-    <<~REPORT
-      Báo cáo hàng ngày (#{yesterday.strftime('%Y-%m-%d')}):
-      - Số người dùng mới đăng ký hôm qua: #{new_users}
-      - Số bài đăng mới tạo hôm qua: #{new_posts}
-      - Số comment mới tạo hôm qua: #{new_comment}
-      #{most_commented_message}
-    REPORT
+  def self.build_report_message(yesterday, new_users, new_posts, new_comments, most_commented_message)
+    format_template(
+      'daily_report_template.msg',
+      yesterday: yesterday.strftime('%Y-%m-%d'),
+      new_users: new_users,
+      new_posts: new_posts,
+      new_comments: new_comments,
+      most_commented_message: most_commented_message
+    )
   end
 
   def self.send_to_slack(message)
-    client = Slack::Web::Client.new
+    client = Slack::Web::Client.new(token: ENV['SLACK_API'])
     client.chat_postMessage(channel: '#social', text: message, as_user: true)
   end
 end
