@@ -1,0 +1,11 @@
+vi:
+  messages:
+    no_comments_yesterday: "Không có bài viết nào có comment hôm qua."
+    daily_report_message: |
+      Báo cáo hàng ngày (%{yesterday}):
+      - Số người dùng mới đăng ký hôm qua: %{new_users}
+      - Số bài đăng mới tạo hôm qua: %{new_posts}
+      - Số comment mới tạo hôm qua: %{new_comments}
+      - %{most_commented_message}
+    build_most_commented_message: "Bài viết có ID %{micropost_id} có nhiều comment nhất với %{count} comment."
+    micropost_url_message: "URL bài viết: http://127.0.0.1:3000/microposts/%{micropost_id}"

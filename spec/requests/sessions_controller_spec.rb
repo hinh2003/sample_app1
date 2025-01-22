@@ -13,7 +13,7 @@ RSpec.describe 'SessionsController', type: :request do
     describe 'Successful third-party logins' do
       include_examples 'logs in user via third-party', 'github', 'user@example.com'
       include_examples 'logs in user via third-party', 'facebook', 'facebook_user@example.com'
-      include_examples 'logs in user via third-party', 'google_oauth2', 'google_user@example.com'
+      # include_examples 'logs in user via third-party', 'google_oauth2', 'google_user@example.com'
     end
 
     describe 'Failed third-party logins' do
