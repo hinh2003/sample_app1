@@ -8,6 +8,7 @@
 # token generation for password resets.
 class User < ApplicationRecord
   has_many :microposts, dependent: :destroy
+  has_many :reactions, dependent: :destroy
   has_many :active_relationships,
            class_name: 'Relationship',
            foreign_key: 'follower_id',
@@ -20,6 +21,7 @@ class User < ApplicationRecord
            inverse_of: :followed
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :messages, dependent: :destroy
 
   attr_accessor :remember_token, :activation_token, :reset_token
 
@@ -33,6 +35,11 @@ class User < ApplicationRecord
                     uniqueness: true)
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  include GoogleTokenRefreshable
+  scope :newly_registered_yesterday, lambda { |date|
+    where(created_at: date.beginning_of_day..date.end_of_day)
+  }
+
   def self.digest(string)
     cost = if ActiveModel::SecurePassword.min_cost
              BCrypt::Engine::MIN_COST
@@ -103,10 +110,20 @@ class User < ApplicationRecord
   end
 
   def self.create_third_party(auth)
-    find_by(email: auth.info.email) || find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
-      set_user_attributes(user, auth)
+    user = find_by(email: auth.info.email) || find_or_create_by(provider: auth.provider, uid: auth.uid) do |new_user|
+      set_user_attributes(new_user, auth)
     end
+
+    if auth.provider == 'google_oauth2'
+      user.update!(
+        google_access_token: auth.credentials.token,
+        google_refresh_token: auth.credentials.refresh_token.presence || user.google_refresh_token,
+        google_token_expires_at: Time.zone.now + (auth.credentials.expires_in || 0).seconds
+      )
+    end
+    user
   end
+
   class << self
     private
 

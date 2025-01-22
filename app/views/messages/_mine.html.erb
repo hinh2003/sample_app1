@@ -1,0 +1,19 @@
+<div class="message mb-2 me" id = "message-me" data-chatId="<%= message.id %>">
+  <div class="content-container" data-chatId="<%= message.id %>">
+    <div class="content">
+      <%= message.content %>
+    </div>
+    <div class="options-menu">
+      <a href="<%= edit_message_path(message.id) %>" class="edit-message" data-message-id="<%= message.id %>" data-message-content="<%= message.content %>">Sửa</a>
+      <a href="<%= message_path(message.id) %>" data-method="delete" data-confirm="Bạn có chắc muốn xóa tin nhắn này?" class="delete-message">Xóa</a>
+    </div>
+    <div class="author" style="display: flex">
+      <%= message.user.name %>
+      <% if message.edited == true %>
+        <div class="edited" style="margin-left: 5px; color: gray; font-style: italic;">
+          (edited)
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
