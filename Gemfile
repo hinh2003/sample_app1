@@ -52,12 +52,12 @@ gem 'google-apis-sheets_v4'
 
 gem 'googleauth', '~> 1.0'
 
-
 gem 'rouge', '~> 4.2'
 gem 'rubocop'
 gem 'rubocop-capybara', '~> 2.21'
 gem 'rubocop-rails', '~> 2.27'
-
+gem 'slack-ruby-client'
+gem 'whenever', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -83,6 +83,7 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'rails-controller-testing'
   gem 'webdrivers'
+  gem 'webmock'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
