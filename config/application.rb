@@ -13,5 +13,6 @@ module SampleApp
     config.load_defaults 6.1
     config.action_view.embed_authenticity_token_in_remote_forms = true
     config.autoload_paths += %W[#{config.root}/app/decorators]
+    config.i18n.default_locale = :vi
   end
 end

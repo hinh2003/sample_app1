@@ -7,7 +7,7 @@ RSpec.describe ReportService, type: :service do
     let(:new_users) { 5 }
     let(:new_posts) { 10 }
     let(:new_comment) { 15 }
-    let(:most_commented_message) { ReportService.build_most_commented_message(mock_micropost, 10, 'https://example.com') }
+    let(:most_commented_message) { ReportService.build_most_commented_message(mock_micropost, 10) }
 
     let(:mock_micropost) { double('Micropost', id: 1) }
 
@@ -31,10 +31,3 @@ RSpec.describe ReportService, type: :service do
     allow(ReportService).to receive(:fetch_most_commented_post).and_return([most_commented_message, 'http://example.com', 10])
   end
 end
-TEMPLATE_PATH = Rails.root.join('config/messages')
-
-def format_template(template_name, values = {})
-  template = File.read(TEMPLATE_PATH.join(template_name))
-  values.empty? ? template : format(template, values)
-end
-

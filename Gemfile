@@ -57,7 +57,6 @@ gem "stackprof"
 gem "sentry-ruby"
 gem "sentry-rails"
 
-
 gem 'rouge', '~> 4.2'
 gem 'rubocop'
 gem 'rubocop-capybara', '~> 2.21'
