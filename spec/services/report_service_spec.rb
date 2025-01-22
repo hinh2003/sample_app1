@@ -28,6 +28,6 @@ RSpec.describe ReportService, type: :service do
     allow(ReportService).to receive(:count_new_users).and_return(new_users)
     allow(ReportService).to receive(:count_new_posts).and_return(new_posts)
     allow(ReportService).to receive(:count_new_comments).and_return(new_comment)
-    allow(ReportService).to receive(:fetch_most_commented_post).and_return([most_commented_message, 'http://example.com', 10])
+    allow(ReportService).to receive(:fetch_most_commented_post).and_return(most_commented_message)
   end
 end
