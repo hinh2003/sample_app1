@@ -375,6 +375,12 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.1.0)
+    sentry-rails (5.22.1)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.22.1)
+    sentry-ruby (5.22.1)
+      bigdecimal
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     signet (0.19.0)
       addressable (~> 2.8)
       faraday (>= 0.17.5, < 3.a)
@@ -399,6 +405,7 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.7.3-x64-mingw-ucrt)
     sqlite3 (1.7.3-x86_64-linux)
+    stackprof (0.2.27)
     tailwindcss-rails (2.5.0-x64-mingw-ucrt)
       railties (>= 6.0.0)
     tailwindcss-rails (2.5.0-x86_64-linux)
@@ -490,9 +497,12 @@ DEPENDENCIES
   rubocop-rails (~> 2.27)
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
+  sentry-rails
+  sentry-ruby
   slack-ruby-client
   spring
   sqlite3 (~> 1.4)
+  stackprof
   tailwindcss-rails (~> 2.5)
   turbolinks (~> 5)
   tzinfo-data

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
   get '/auth/:provider/callback', to: 'sessions#create_third_party'
+  get '/test_error', to: 'test_error#test_error'
 
   post '/microposts/reactions', to: 'reactions#create', as: 'reactions'
   delete '/microposts/:micropost_id/reactions', to: 'reactions#destroy', as: 'destroy_reaction'
