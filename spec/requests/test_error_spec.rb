@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe 'GoogleSheets', type: :request do
-  describe 'GET /index' do
+RSpec.describe "TestErrors", type: :request do
+  describe "GET /index" do
     pending "add some examples (or delete) #{__FILE__}"
   end
 end
