@@ -3,12 +3,7 @@
 Sentry.init do |config|
   config.dsn = ENV['SENTRY_DNS']
   config.breadcrumbs_logger = %i[active_support_logger http_logger]
-
-  # Set traces_sample_rate to 1.0 to capture 100%
-  # of transactions for tracing.
-  # We recommend adjusting this value in production.
   config.traces_sample_rate = 1.0
-  # or
   config.traces_sampler = lambda do |_context|
     true
   end
@@ -16,9 +11,6 @@ Sentry.init do |config|
     send_error_to_slack(event)
     event
   end
-  # Set profiles_sample_rate to profile 100%
-  # of sampled transactions.
-  # We recommend adjusting this value in production.
   config.profiles_sample_rate = 1.0
 end
 
@@ -34,17 +26,17 @@ def send_error_to_slack(event)
   send_to_slack(slack_webhook_url, payload)
 end
 
-
 def build_slack_payload(error_message, timestamp, sentry_url)
   {
-    text: '*Sentry Error Notification* :rotating_light:',
+    text: I18n.t('messages.error_notification',),
     attachments: [
       {
         color: '#ff0000',
         fields: [
-          { title: 'Error Message', value: error_message, short: false },
-          { title: 'Timestamp', value: timestamp, short: true },
-          { title: 'Sentry Link', value: "<#{sentry_url}|View in Sentry>", short: false }
+          { title: I18n.t('messages.error_message'), value: error_message, short: false },
+          { title: I18n.t('messages.timestamp'), value: timestamp, short: true },
+          { title: I18n.t('messages.sentry_link'), value: "<#{sentry_url}|#{I18n.t('messages.view_in_sentry')}>",
+            short: false }
         ]
       }
     ]

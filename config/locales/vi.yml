@@ -9,3 +9,8 @@ vi:
       - %{most_commented_message}
     build_most_commented_message: "Bài viết có ID %{micropost_id} có nhiều comment nhất với %{count} comment."
     micropost_url_message: "URL bài viết: http://127.0.0.1:3000/microposts/%{micropost_id}"
+    error_notification: "*Thông báo lỗi từ Sentry* :rotating_light:"
+    error_message: "Tin nhắn lỗi"
+    timestamp: "Thời gian"
+    sentry_link: "Liên kết Sentry"
+    view_in_sentry: "Xem trong Sentry"
