@@ -59,21 +59,16 @@ class RoomsController < ApplicationController
 
   def create_room
     recipient = User.find(params[:recipient_id])
-
     existing_message = Room.find_room(current_user.id, recipient.id)
 
     if existing_message
       redirect_to room_path(existing_message.id)
     else
-      @room = Room.create(name: "#{current_user.name} - #{recipient.name}")
+      @room = create_new_room(current_user, recipient)
 
       if @room.save
-        Message.create(user_id: current_user.id, room_id: @room.id, content: "welcome to #{@room.name}")
-        Message.create(user_id: recipient.id, room_id: @room.id, content: "welcome to #{@room.name}")
-
+        send_welcome_messages(@room)
         redirect_to room_path(@room)
-      else
-        render json: { status: 'error', errors: @room.errors.full_messages }, status: :unprocessable_entity
       end
     end
   end
@@ -86,5 +81,18 @@ class RoomsController < ApplicationController
 
   def room_params
     params.require(:room).permit(:name)
+  end
+
+  def find_existing_room(user_id, recipient_id)
+    Room.find_room(user_id, recipient_id)
+  end
+
+  def create_new_room(current_user, recipient)
+    Room.new(name: "#{current_user.name} - #{recipient.name}")
+  end
+
+  def send_welcome_messages(room)
+    Message.create(user_id: current_user.id, room_id: room.id, content: "welcome to #{room.name}")
+    Message.create(user_id: recipient.id, room_id: room.id, content: "welcome to #{room.name}")
   end
 end

@@ -51,10 +51,10 @@ gem 'google-apis-drive_v3'
 gem 'google-apis-sheets_v4'
 
 gem 'googleauth', '~> 1.0'
-gem "sentry-rails"
-gem "sentry-ruby"
+gem 'sentry-rails'
+gem 'sentry-ruby'
 gem 'slack-ruby-client'
-gem "stackprof"
+gem 'stackprof'
 gem 'whenever', require: false
 
 gem 'rouge', '~> 4.2'
@@ -91,5 +91,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
-gem 'tailwindcss-rails', '~> 2.5'

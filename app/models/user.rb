@@ -114,16 +114,9 @@ class User < ApplicationRecord
       set_user_attributes(new_user, auth)
     end
 
-    if auth.provider == 'google_oauth2'
-      user.update!(
-        google_access_token: auth.credentials.token,
-        google_refresh_token: auth.credentials.refresh_token.presence || user.google_refresh_token,
-        google_token_expires_at: Time.zone.now + (auth.credentials.expires_in || 0).seconds
-      )
-    end
+    update_google_tokens(user, auth) if auth.provider == 'google_oauth2'
     user
   end
-
   class << self
     private
 
@@ -148,5 +141,13 @@ class User < ApplicationRecord
   def create_activation_digest
     self.activation_token = User.new_token
     self.activation_digest = User.digest(activation_token)
+  end
+
+  def update_google_tokens(user, auth)
+    user.update!(
+      google_access_token: auth.credentials.token,
+      google_refresh_token: auth.credentials.refresh_token.presence || user.google_refresh_token,
+      google_token_expires_at: Time.zone.now + (auth.credentials.expires_in || 0).seconds
+    )
   end
 end

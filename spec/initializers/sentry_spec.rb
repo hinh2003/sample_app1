@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # spec/initializers/sentry_spec.rb
 require 'rails_helper'
 RSpec.describe 'Sentry Initialization', type: :initialization do

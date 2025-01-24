@@ -25,9 +25,7 @@ module GoogleTokenRefreshable
   end
 
   def ensure_google_access_token
-    if google_access_token.nil? || google_token_expires_at < Time.zone.now
-      refresh_google_token
-    end
+    refresh_google_token if google_access_token.nil? || google_token_expires_at < Time.zone.now
     google_access_token
   end
 end

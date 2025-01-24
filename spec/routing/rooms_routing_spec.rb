@@ -28,7 +28,6 @@ RSpec.describe RoomsController, type: :routing do
       expect(put: '/rooms/1').to route_to('rooms#update', id: '1')
     end
 
-
     it 'routes to #destroy' do
       expect(delete: '/rooms/1').to route_to('rooms#destroy', id: '1')
     end
