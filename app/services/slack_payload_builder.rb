@@ -17,7 +17,7 @@ class SlackPayloadBuilder
           fields: [
             { title: I18n.t('messages.error_message'), value: @error_message, short: false },
             { title: I18n.t('messages.timestamp'), value: @timestamp, short: true },
-            { title: I18n.t('messages.sentry_link'), value: "<#{@sentry_url}|#{I18n.t('messages.view_in_sentry')}>", 
+            { title: I18n.t('messages.sentry_link'), value: "<#{@sentry_url}|#{I18n.t('messages.view_in_sentry')}>",
               short: false }
           ]
         }

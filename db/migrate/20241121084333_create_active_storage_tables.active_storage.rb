@@ -27,15 +27,15 @@ class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
     add_active_storage_blobs_index
   end
 
-  def add_blob_columns(_table)
-    _table.string   :key,          null: false
-    _table.string   :filename,     null: false
-    _table.string   :content_type
-    _table.text     :metadata
-    _table.string   :service_name, null: false
-    _table.bigint   :byte_size,    null: false
-    _table.string   :checksum,     null: false
-    _table.datetime :created_at,   null: false
+  def add_blob_columns(table)
+    table.string   :key,          null: false
+    table.string   :filename,     null: false
+    table.string   :content_type
+    table.text     :metadata
+    table.string   :service_name, null: false
+    table.bigint   :byte_size,    null: false
+    table.string   :checksum,     null: false
+    table.datetime :created_at,   null: false
   end
 
   def add_active_storage_blobs_index
@@ -50,11 +50,11 @@ class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
     add_foreign_key_for_attachments
   end
 
-  def add_attachment_columns(_table, foreign_key_type)
-    _table.string     :name,     null: false
-    _table.references :record,   null: false, polymorphic: true, index: false, type: foreign_key_type
-    _table.references :blob,     null: false, type: foreign_key_type
-    _table.datetime :created_at, null: false
+  def add_attachment_columns(table, foreign_key_type)
+    table.string     :name,     null: false
+    table.references :record,   null: false, polymorphic: true, index: false, type: foreign_key_type
+    table.references :blob,     null: false, type: foreign_key_type
+    table.datetime :created_at, null: false
   end
 
   def add_active_storage_attachments_index
@@ -74,9 +74,9 @@ class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
     add_foreign_key_for_variant_records
   end
 
-  def add_variant_record_columns(_table, foreign_key_type)
-    _table.belongs_to :blob, null: false, index: false, type: foreign_key_type
-    _table.string :variation_digest, null: false
+  def add_variant_record_columns(table, foreign_key_type)
+    table.belongs_to :blob, null: false, index: false, type: foreign_key_type
+    table.string :variation_digest, null: false
   end
 
   def add_active_storage_variant_records_index

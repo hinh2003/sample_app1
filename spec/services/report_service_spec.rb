@@ -17,7 +17,8 @@ RSpec.describe ReportService, type: :service do
     end
 
     it 'calls send_to_slack with the correct message' do
-      report_message = ReportService.build_report_message(yesterday,new_users, new_posts, new_comment, most_commented_message)
+      report_message = ReportService.build_report_message(yesterday, new_users, new_posts, new_comment,
+                                                          most_commented_message)
       ReportService.send_daily_report
 
       expect(ReportService).to have_received(:send_to_slack).with(report_message)

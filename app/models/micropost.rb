@@ -38,7 +38,7 @@ class Micropost < ApplicationRecord
       .where.not(parent_id: nil)
   }
 
-  scope :most_commented_yesterday, ->(date) {
+  scope :most_commented_yesterday, lambda { |date|
     where(created_at: date.beginning_of_day..date.end_of_day)
       .where.not(parent_id: nil)
       .group(:parent_id)

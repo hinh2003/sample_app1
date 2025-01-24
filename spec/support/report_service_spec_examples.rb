@@ -28,5 +28,4 @@ shared_examples 'report service spec data' do
       expect(result).to eq(1)
     end
   end
-
 end
