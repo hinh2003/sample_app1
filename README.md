@@ -13,8 +13,8 @@ Ensure you have the following installed on your machine:
 ---
 ### Step 1: Clone the repository
 ```bash
-git clone https://github.com/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/sample_app1.git
+cd sample_app1
 ```
 $ bundle install --without production
 ### Step 2:Create application.yml
